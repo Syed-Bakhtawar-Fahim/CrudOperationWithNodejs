@@ -110,7 +110,12 @@ app.delete('/user/:id', (req, res) => {
         }
     })
 })
-
+app.get('/', (req, res) => {
+    res.send('Hi I am a hello world Server program')
+  })
+app.get('/home', (req, res){
+    res.send('Hello Viewer! Here is your home page')
+})
 
 // Get data
 const BASE_URL = 'http://localhost:5000/users';
