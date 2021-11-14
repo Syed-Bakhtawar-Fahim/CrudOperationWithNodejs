@@ -4,7 +4,7 @@ import axios from 'axios';
 import morgan from 'morgan';
 import cors from "cors";
 const app = express()
-const port = 5000
+const port = process.env.PORT || 5000
 
 // App Use Methods
 app.use(cors())
