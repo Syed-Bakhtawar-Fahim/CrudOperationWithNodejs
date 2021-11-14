@@ -113,7 +113,7 @@ app.delete('/user/:id', (req, res) => {
 app.get('/', (req, res) => {
     res.send('Hi I am a hello world Server program')
   })
-app.get('/home', (req, res){
+app.get('/home', (req, res) => {
     res.send('Hello Viewer! Here is your home page')
 })
 
