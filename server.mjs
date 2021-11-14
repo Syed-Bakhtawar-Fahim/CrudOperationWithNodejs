@@ -118,7 +118,7 @@ app.get('/home', (req, res) => {
 })
 
 // Get data
-const BASE_URL = 'http://localhost:5000/users';
+const BASE_URL = 'https://crudoperationnodejsmongodb.herokuapp.com/users';
 
 const getTodoItems = async () => {
   try {
