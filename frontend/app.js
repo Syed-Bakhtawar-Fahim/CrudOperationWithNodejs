@@ -10,7 +10,7 @@ function createNote(){
         address: addressField
     };
     
-    fetch('http://localhost:5000/user', {
+    fetch('https://crudoperationnodejsmongodb.herokuapp.com/user', {
             method: 'POST',
             body: JSON.stringify(todo),
             headers: {
@@ -29,7 +29,7 @@ function createNote(){
 
 
 const api_url = 
-      "http://localhost:5000/users";
+      "https://crudoperationnodejsmongodb.herokuapp.com/users";
   
 // Defining async function
 async function getapi(url) {
@@ -76,7 +76,7 @@ function show(data) {
 function deleteRow(){
     const deleteUser = document.getElementById("deleteUser").value
     console.log(deleteUser)
-    const deleteRow = fetch(`http://localhost:5000/user/${deleteUser}`, {
+    const deleteRow = fetch(`https://crudoperationnodejsmongodb.herokuapp.com/user/${deleteUser}`, {
     method: 'DELETE',
   });
   window.location.reload();
@@ -97,7 +97,7 @@ function UpdateUser(){
         address: addressFieldUpdate,
         UserId: UserIdUpdate
     }
-    fetch(`http://localhost:5000/user/${UserIdUpdate}`, {
+    fetch(`https://crudoperationnodejsmongodb.herokuapp.com/user/${UserIdUpdate}`, {
   method: 'PUT',
   body: JSON.stringify(Put),
   headers: {
