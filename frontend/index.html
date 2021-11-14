@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600&display=swap" rel="stylesheet">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <div class="heading">
+        <h1>Crud Operation</h1>
+    </div>
+    <div class="PostUser">
+        <h1>Name</h1>
+        <input type="text" id="name"  class="input" placeholder="Enter Your Name"> <br /><br />
+        <h1>Email</h1>
+        <input type="text" id="email" class="input" placeholder="Enter Your Email"> <br /><br />
+
+        <h1>Address</h1>
+        <input type="text" id="address" class="input" placeholder="Enter Your Address"> <br /><br />
+        <button onclick="createNote()"  class="btn"> Submit</button> <br /><br /><br /><br />
+        <!-- <button onclick="createNote()" class="btn"> Update User</button> -->
+    </div>
+
+    <!-- Table -->
+    <!-- Here a loader is created which 
+             loads till response comes -->
+             <div class="d-flex justify-content-center">
+                <div class="spinner-border" 
+                     role="status" id="loading">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <h1 class="Register">Registered Employees</h1>
+            <!-- table for showing data -->
+           <div class="table">
+            <table id="employees"></table>
+           </div>
+
+   
+
+            <div class="PostUser" >
+                <h1 onclick="showDeleteContent()" >Wanna Delete?</h1>
+                <div id="delete-content">
+                    <input class="input" type="text" id="deleteUser" placeholder="Enter your Id to delete">
+                    <button class="btn" onclick="deleteRow()" id="delete">Delete!</button>
+                </div>
+               
+            </div>
+
+            <div class="PostUser">
+                <h1 onclick="showUpdateContent()">Do you Want To Update Your Information?</h1>
+                <div class="PostUser" id="show-update-content"> 
+                    <h1>Name</h1>
+                    <input type="text" id="nameUpdate"  class="input" placeholder="Enter Your Name"> <br /><br />
+                    <h1>Email</h1>
+                    <input type="text" id="emailUpdate" class="input" placeholder="Enter Your Email"> <br /><br />
+            
+                    <h1>Address</h1>
+                    <input type="text" id="addressUpdate" class="input" placeholder="Enter Your Address"> <br /><br />
+                    <h1>Your Given Id</h1>
+                    <input type="text" id="UserIdUpdate" class="input" placeholder="Enter Your Given Id"> <br /><br />
+                    <button onclick="UpdateUser()"  class="btn">Update</button> <br /><br /><br /><br />
+                    <!-- <button onclick="createNote()" class="btn"> Update User</button> -->
+                </div>
+            </div>
+
+            <section class="footer">
+                <div class="last">Developed By Syed Bakhtawar Fahim</div>
+                <a href="https://github.com/Syed-Bakhtawar-Fahim">Learn More About Me!</a>
+            </section>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+    <!-- Our Links -->
+    <script src="./app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+
+
+
+</body>
