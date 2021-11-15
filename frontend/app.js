@@ -22,7 +22,7 @@ function createNote(){
             console.log(json);
         });
 
-        window.location.reload();
+//         window.location.reload();
 }
 
 
@@ -79,7 +79,7 @@ function deleteRow(){
     const deleteRow = fetch(`https://crudoperationnodejsmongodb.herokuapp.com/user/${deleteUser}`, {
     method: 'DELETE',
   });
-  window.location.reload();
+//   window.location.reload();
   
 }
 
@@ -107,7 +107,7 @@ function UpdateUser(){
   .then((response) => response.json())
   .then((json) => console.log(json));
 
-  window.location.reload();
+//   window.location.reload();
 }
 
 // Toggle delete content 
