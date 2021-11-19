@@ -2,113 +2,233 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud Operation || Syed Bakhtawar Fahim</title>
+
+    <!-- Custom CSS Link -->
     <link rel="stylesheet" href="style.css">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <title>Hello, world!</title>
 </head>
 
 <body>
+    <!-- Top Heading Start -->
     <div class="heading">
         <h1>Crud Operation</h1>
+        <h6 class="or">OR</h6>
+        <h1>User Management System</h1>
     </div>
-    <div class="PostUser">
-    <h1>Name</h1>
-    <input type="text" id="name"  class="input" placeholder="Enter Your Name"> <br /><br />
-    <h1>Email</h1>
-    <input type="text" id="email" class="input" placeholder="Enter Your Email"> <br /><br />
+    <!-- Top Heading End -->
 
-    <h1>Address</h1>
-    <input type="text" id="address" class="input" placeholder="Enter Your Address"> <br /><br />
-    <button onclick="createNote()"  class="btn"> Submit</button> <br /><br /><br /><br />
-    <!-- <button onclick="createNote()" class="btn"> Update User</button> -->
-</div>
+    <!--  form container -->
+    <div style="width: 80%;" class="inputSection">
 
-    <!-- Table -->
-    <!-- Here a loader is created which 
-             loads till response comes -->
-             <div class="d-flex justify-content-center">
-                <div class="spinner-border" 
-                     role="status" id="loading">
-                    <span class="sr-only">Loading...</span>
-                </div>
+        <div class="mb-3 row">
+            <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputName">
             </div>
-            <h1 class="Register">Registered Employees</h1>
-            <!-- table for showing data -->
-           <div class="table">
-            <table id="employees"></table>
-           </div>
-
-   
-
-            <div class="PostUser" >
-                <h1 onclick="showDeleteContent()" >Wanna Delete?</h1>
-                <div id="delete-content">
-                    <input class="input" type="text" id="deleteUser" placeholder="Enter your Id to delete">
-                    <button class="btn" onclick="deleteRow()" id="delete">Delete!</button>
-                </div>
-               
+        </div>
+        <div class="mb-3 row">
+            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputEmail">
             </div>
-
-            <div class="PostUser">
-                <h1 onclick="showUpdateContent()">Do you Want To Update Your Information?</h1>
-                <div class="PostUser" id="show-update-content"> 
-                    <h1>Name</h1>
-                    <input type="text" id="nameUpdate"  class="input" placeholder="Enter Your Name"> <br /><br />
-                    <h1>Email</h1>
-                    <input type="text" id="emailUpdate" class="input" placeholder="Enter Your Email"> <br /><br />
-            
-                    <h1>Address</h1>
-                    <input type="text" id="addressUpdate" class="input" placeholder="Enter Your Address"> <br /><br />
-                    <h1>Your Given Id</h1>
-                    <input type="text" id="UserIdUpdate" class="input" placeholder="Enter Your Given Id"> <br /><br />
-                    <button onclick="UpdateUser()"  class="btn">Update</button> <br /><br /><br /><br />
-                    <!-- <button onclick="createNote()" class="btn"> Update User</button> -->
-                </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="inputAddress" class="col-sm-2 col-form-label">Address</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputAddress">
             </div>
+        </div>
 
-            <section class="footer">
-                <div class="last">Developed By Syed Bakhtawar Fahim</div>
-                <a href="https://github.com/Syed-Bakhtawar-Fahim">Learn More About Me!</a>
-            </section>
+        <button onclick="createUser()" type="button" class="btn btn-primary" id="btn">Add User</button>
+
+        <div id="alert" style="height: 70px;"></div>
+
+    </div>
+
+    <!-- data container -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-bordered" id="editTable">
+                    <thead id="MainTable">
+                        <tr id="headingTable">
+
+                        </tr>
+                        <tbody id="tableBody">
+
+
+                        </tbody>
+                    </thead>
+                   
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section Start -->
+    <section class="footer">
+        <div class="last">Developed By Syed Bakhtawar Fahim</div>
+        <a href="https://github.com/Syed-Bakhtawar-Fahim" id="footerA">Learn More About Me!</a>
+    </section>
+    <!-- Footer Section End -->
+
+    <script>
+
+        let users = []
+        const url = "https://crudoperationnodejsmongodb.herokuapp.com"
+        function createUser() {
+            let name = document.getElementById("inputName").value
+            let email = document.getElementById("inputEmail").value
+            let address = document.getElementById("inputAddress").value
+
+            axios.post(`${url}/user`, {
+                name, email, address
+            })
+                .then(function (response) {
+                    console.log(response);
+
+                    document.getElementById("inputName").value = ""
+                    document.getElementById("inputEmail").value = ""
+                    document.getElementById("inputAddress").value = ""
+
+                    getAllUser()
+
+                    document.getElementById("alert").innerHTML =
+                        `<div class="alert alert-success" role="alert">
+                            User Created Success!
+                        </div>`
+
+                    setTimeout(() => {
+                        document.getElementById("alert").innerHTML = ""
+                    }, 3000);
+
+                })
+
+        }
+
+        function getAllUser() {
+
+            axios.get(`${url}/users`)
+                .then(function (response) {
+                    console.log(response);
+
+                    users = response.data;
+                
+                    
+                    document.getElementById("tableBody").innerHTML = ""
+
+                    users.map((eachUser, index) => {
+                     document.getElementById("headingTable").innerHTML =  `<tr>
+                        <th>Your Id</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Actions</th>
+                        </tr>`
+                    document.getElementById("MainTable").innerHTML += 
+                     `
+                        
+                     
+                            
+                   
+                                <tr id="${eachUser._id}">
+                                <th scope="row">${eachUser._id}</th>
+                                <td>${eachUser.name}</td>
+                                <td>${eachUser.email}</td>
+                                <td>${eachUser.address}</td>
+                                <td>
+                                    <button type="button" onclick="editUser('${eachUser._id}', ${index})" class="btn btn-primary">Edit</button>
+                                    <button type="button" onclick="deleteUser('${eachUser._id}')" class="btn btn-danger">Delete</button>
+                                </td>
+                            </tr>`
+                })
+                })
+
+        }
+
+        function editUser(_id, index) {
+            console.log(_id, index);
+
+            const userObject = users[index]
+
+            console.log("userObject: ", userObject);
+
+            document.getElementById(_id).innerHTML = `
+            <tr id="${_id}"> 
+                
+                    <th scope="row">${_id}</th>
+                    <td><input type="text" id="${_id}-name" value="${userObject.name}" /></td>
+                    <td><input type="text" id="${_id}-email" value="${userObject.email}" /></td>
+                    <td><input type="text" id="${_id}-address" value="${userObject.address}" /></td>
+                    <td>
+                        <button type="button" onclick="updateUser('${_id}')" class="btn btn-success">Update</button>
+                    </td>
+                </tr>`;
+        }
+
+        function deleteUser(_id) {
+
+            axios.delete(`${url}/user/${_id}`)
+                .then(function (response) {
+                    console.log(response);
+
+                    getAllUser();
+
+                    document.getElementById("alert").innerHTML =
+                        `<div class="alert alert-danger" role="alert">
+                            User Deleted Success!
+                        </div>`
+
+                    setTimeout(() => {
+                        document.getElementById("alert").innerHTML = ""
+                    }, 3000);
+
+                })
+                window.location.reload()
+        }
+
+        function updateUser(_id) {
+
+            const name = document.getElementById(`${_id}-name`).value
+            const email = document.getElementById(`${_id}-email`).value
+            const address = document.getElementById(`${_id}-address`).value
+
+            axios.put(`${url}/user/${_id}`, { name, email, address })
+                .then(function (response) {
+                    console.log(response);
+
+                    // getAllUser();
+
+                    document.getElementById("alert").innerHTML =
+                        `<div class="alert alert-success" role="alert">
+                            User Updated Success!
+                        </div>`
+
+                    setTimeout(() => {
+                        document.getElementById("alert").innerHTML = ""
+                    }, 3000);
+
+                })
+                window.location.reload()
+        }
 
 
 
+        getAllUser();
 
+    </script>
 
-
-  
-
-
-
-
-
-
-    <!-- Our Links -->
-    <script src="./app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
 </body>
 
 </html>
-
